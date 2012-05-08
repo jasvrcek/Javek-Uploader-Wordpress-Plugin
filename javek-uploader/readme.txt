@@ -14,7 +14,7 @@ Allows people to securely send you files with an encrypted upload form on your W
 
 This plugin allows you to embed a file upload form on your Wordpress site as a widget. 
 
-The form allows people to securely send you large file using the Public Buckets feature of a Javek client portal. In order
+The form allows people to securely send you large files using the Public Buckets feature of a Javek client portal. In order
 to use the plugin, you must have a Javek subscription. You can sign up for Javek here: [https://www.javek.com/sign_up.htm](https://www.javek.com/sign_up.htm).
 
 For information on Javek, please visit http://www.javek.com
