@@ -4,7 +4,7 @@ Donate link: https://www.javek.com/sign_up.htm
 Tags: widget, client portal, file sharing, uploader
 Requires at least: 2.8
 Tested up to: 3.3.2
-Stable tag: 1.0
+Stable tag: 2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -42,9 +42,13 @@ You need to enable your upload form. Login to your Javek subscription, go to the
 
 == Screenshots ==
 
-1. View of the upload form.
+1. View of the upload form, step 1.
+2. View of upload form, step 2.
 
 == Changelog ==
+
+= 2.0 =
+* Updated plugin to use v2 of Javek Uploader
 
 = 1.0 =
 * First release
