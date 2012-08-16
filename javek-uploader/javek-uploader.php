@@ -3,7 +3,7 @@
 Plugin Name: Javek Uploader
 Plugin URI: http://wordpress.org/extend/plugins/javek-uploader
 Description: Allows people to securely send you files through your Wordpress site, using a Javek client-portal.
-Version: 1.0
+Version: 2.0
 Author: Javek
 Author URI: http://www.javek.com
 License: GPL2
