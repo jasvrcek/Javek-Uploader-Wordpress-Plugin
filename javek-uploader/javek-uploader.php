@@ -3,7 +3,7 @@
 Plugin Name: Javek Uploader
 Plugin URI: http://wordpress.org/extend/plugins/javek-uploader
 Description: Allows people to securely send you files through your Wordpress site, using a Javek client-portal.
-Version: 2.0
+Version: 2.1
 Author: Javek
 Author URI: http://www.javek.com
 License: GPL2
@@ -64,6 +64,8 @@ class Javek_Uploader_Widget extends WP_Widget
 		else {
 			$description = '';
 		}
+		
+		$border_color = (isset($instance['border_color'])) ? $instance['border_color'] : '';
 		?>
 		<p>URL of your <a href="http://www.javek.com" target="_blank">Javek</a> portal:</p>
 		<p> 
@@ -78,6 +80,12 @@ class Javek_Uploader_Widget extends WP_Widget
 		<p>
 			<label for="<?php echo $this->get_field_id( 'description' ); ?>">Optional Description:</label>
 			<textarea style="height:80px" class="widefat" id="<?php echo $this->get_field_id( 'description' ); ?>" name="<?php echo $this->get_field_name( 'description' ); ?>"><?php echo $description; ?></textarea>
+		</p>
+		
+		<p>
+			<label for="<?php echo $this->get_field_id( 'border_color' ); ?>">Optional Border Color:</label>
+			<input class="widefat" id="<?php echo $this->get_field_id( 'border_color' ); ?>" name="<?php echo $this->get_field_name( 'border_color' ); ?>" value="<?php echo $border_color; ?>" />
+			<span style="font-style:italic;font-size:10px">Examples: "red" or "#FF0000" or "rgb(255, 0, 0)"</span>
 		</p>
 		
 		<p>Please remember you must enable "Public Buckets" within your Javek subscription before this widget can be used.</p>
@@ -102,6 +110,7 @@ class Javek_Uploader_Widget extends WP_Widget
 		$instance['subscription_name'] = trim(strip_tags($new_instance['subscription_name']));
 		$instance['title'] = trim(strip_tags($new_instance['title']));
 		$instance['description'] = trim($new_instance['description']);
+		$instance['border_color'] = trim($new_instance['border_color']);
 
 		return $instance;
 	}
@@ -116,6 +125,10 @@ class Javek_Uploader_Widget extends WP_Widget
 	 */
 	public function widget( $args, $instance ) 
 	{
+	    $style = ($instance['border_color']) ? 'padding:10px 20px 0 20px;border:4px solid '.$instance['border_color'] : '';
+	    
+	    echo '<div class="javek-uploader-widget" style="background:#fff;width:586px;'.$style.'">';
+	    
 		if (isset($instance['title'])) {
 			if ($instance['title']) echo '<h3 class="widget-title">'.$instance['title'].'</h3>';
 		}
@@ -132,6 +145,8 @@ class Javek_Uploader_Widget extends WP_Widget
  fjs.parentNode.insertBefore(js, fjs); 
 }(document, "script", "javek-public-bucket-js"));</script>
 <div class="javek-public-bucket" name="'.$instance['subscription_name'].'"></div>';
+		
+		echo '</div>';
 	}
 }
 add_action( 'widgets_init', create_function( '', 'register_widget( "javek_uploader_widget" );' ) );

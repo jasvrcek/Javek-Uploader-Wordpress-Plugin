@@ -4,7 +4,7 @@ Donate link: https://www.javek.com/sign_up.htm
 Tags: widget, client portal, file sharing, uploader
 Requires at least: 2.8
 Tested up to: 3.3.2
-Stable tag: 2.0
+Stable tag: 2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -47,6 +47,9 @@ You need to enable your upload form. Login to your Javek subscription, go to the
 
 == Changelog ==
 
+= 2.1 =
+* Added optional widget border, edited widget background color to help integration with dark-background themes
+
 = 2.0 =
 * Updated plugin to use v2 of Javek Uploader
 
@@ -54,6 +57,12 @@ You need to enable your upload form. Login to your Javek subscription, go to the
 * First release
 
 == Upgrade Notice ==
+
+= 2.1 =
+Better integration with dark-background websites, optional widget border
+
+= 2.0 =
+Switch to new Javek uploader widget, allows multiple file uplaods
 
 = 1.0 =
 First release
