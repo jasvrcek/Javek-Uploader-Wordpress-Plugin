@@ -137,11 +137,11 @@ class Javek_Uploader_Widget extends WP_Widget
 		}
 		
 		echo '<script>(function(d, s, id) {
- var domain=(window.location.protocol=="https:")?"https://c3438863.ssl.cf0.rackcdn.com":"http://c3438863.r63.cf0.rackcdn.com/";
+ var domain=(window.location.protocol=="https:")?"https://c3438863.ssl.cf0.rackcdn.com":"http://c3438863.r63.cf0.rackcdn.com";
  var js, fjs = d.getElementsByTagName(s)[0];
  if (d.getElementById(id)) return;
  js = d.createElement(s); js.id = id;
- js.src = domain + "/widget.public-bucket.v2.min.js";
+ js.src = domain + "/widget.public-bucket.v3.1.min.js";
  fjs.parentNode.insertBefore(js, fjs); 
 }(document, "script", "javek-public-bucket-js"));</script>
 <div class="javek-public-bucket" name="'.$instance['subscription_name'].'"></div>';
