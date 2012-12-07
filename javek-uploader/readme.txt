@@ -4,7 +4,7 @@ Donate link: https://www.javek.com/sign_up.htm
 Tags: widget, client portal, file sharing, uploader
 Requires at least: 2.8
 Tested up to: 3.4.2
-Stable tag: 3.0
+Stable tag: 3.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -47,6 +47,9 @@ You need to enable your upload form. Login to your Javek subscription, go to the
 
 == Changelog ==
 
+= 3.1 =
+* Added css media queries to resize uploader for mobile devices
+
 = 3.0 =
 * Switched to v3 uploader, which removes Javek branding from upload form for Enterprise-level subscriptions
 
@@ -60,6 +63,9 @@ You need to enable your upload form. Login to your Javek subscription, go to the
 * First release
 
 == Upgrade Notice ==
+
+= 3.1 =
+Improves compatibility with mobile devices
 
 = 3.0 =
 Removes Javek branding from upload forms for Enterprise-level subscriptions

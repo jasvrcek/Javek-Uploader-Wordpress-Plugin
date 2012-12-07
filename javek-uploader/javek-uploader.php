@@ -3,7 +3,7 @@
 Plugin Name: Javek Uploader
 Plugin URI: http://wordpress.org/extend/plugins/javek-uploader
 Description: Allows people to securely send you files through your Wordpress site, using a Javek client-portal.
-Version: 2.1
+Version: 3.1
 Author: Javek
 Author URI: http://www.javek.com
 License: GPL2
@@ -125,9 +125,9 @@ class Javek_Uploader_Widget extends WP_Widget
 	 */
 	public function widget( $args, $instance ) 
 	{
-	    $style = ($instance['border_color']) ? 'padding:10px 20px 0 20px;border:4px solid '.$instance['border_color'] : '';
+	    $style = ($instance['border_color']) ? 'border:4px solid '.$instance['border_color'] : '';
 	    
-	    echo '<div class="javek-uploader-widget" style="background:#fff;width:586px;'.$style.'">';
+	    echo '<div class="javek-uploader-widget-container" style="'.$style.'">';
 	    
 		if (isset($instance['title'])) {
 			if ($instance['title']) echo '<h3 class="widget-title">'.$instance['title'].'</h3>';
@@ -141,9 +141,17 @@ class Javek_Uploader_Widget extends WP_Widget
  var js, fjs = d.getElementsByTagName(s)[0];
  if (d.getElementById(id)) return;
  js = d.createElement(s); js.id = id;
- js.src = domain + "/widget.public-bucket.v3.1.min.js";
+ js.src = domain + "/widget.public-bucket.v3.2.min.js";
  fjs.parentNode.insertBefore(js, fjs); 
 }(document, "script", "javek-public-bucket-js"));</script>
+<style type="text/css">
+.javek-uploader-widget-container { background:#fff;width:586px;padding:10px 20px 0 20px; }
+#javek-public-uploader-iframe { width:580px; height:250px }
+@media only screen and (max-device-width: 480px) {
+    #javek-public-uploader-iframe { width:300px; height:275px }
+    .javek-uploader-widget-container { width:300px;padding:2px }
+}
+</style>
 <div class="javek-public-bucket" name="'.$instance['subscription_name'].'"></div>';
 		
 		echo '</div>';
