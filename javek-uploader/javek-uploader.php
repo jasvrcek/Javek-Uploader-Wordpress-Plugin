@@ -2,8 +2,8 @@
 /*
 Plugin Name: Javek Uploader
 Plugin URI: http://wordpress.org/extend/plugins/javek-uploader
-Description: Allows people to securely send you files through your Wordpress site, using a Javek client-portal.
-Version: 3.1
+Description: Allows people to securely send you files through your Wordpress site, using a Javek client-portal. Use the shortcode <code>[javek-portal name="your-company"]</code> in any post or page. (If your Javek portal is at http://www.javek.com/my-company, you would use "my-company" in the "name" field of the shortcode: <code>[javek-uploader name="my-company"]</code>).
+Version: 3.2
 Author: Javek
 Author URI: http://www.javek.com
 License: GPL2
@@ -23,6 +23,42 @@ License: GPL2
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
+
+function javek_uploader_shortcode($atts, $content = null)
+{
+    if (!isset($atts['name']))
+    {
+        $html = '<div style="padding:20px 40px;border:3px solid #ff0000;background:#fff">
+            <p style="font-size:1.5em;color:#000">Javek Uploader</p>
+            <p style="font-size:1em;color:#000">You did not enter your the Javek shortcode correctly in this post or page.</p>
+            <p style="font-size:1em;color:#000">Please change [javek-uploader] to [javek-uploader name="your-subscription-name"].</p>
+            <p style="font-size:1em;color:#000">(Your subscription name is the last part of your portal url. If your portal url is https://www.javek.com/my-company, "my-company" is your subscription name. Your shortcode would be [javek-uploader name="my-company"])</p>
+        </div>';
+    }
+    elseif (!$atts['name'])
+    {
+        $html = '<div style="padding:20px 40px;border:3px solid #ff0000;background:#fff">
+            <p style="font-size:1.5em;color:#000">Javek Uploader</p>
+            <p style="font-size:1em;color:#000">You did not enter your the Javek shortcode correctly in this post or page.</p>
+            <p style="font-size:1em;color:#000">Please change [javek-uploader name=""] to [javek-uploader name="your-subscription-name"].</p>
+            <p style="font-size:1em;color:#000">(Your subscription name is the last part of your portal url. If your portal url is https://www.javek.com/my-company, "my-company" is your subscription name. Your shortcode would be [javek-uploader name="my-company"])</p>
+        </div>';
+    }
+    else
+    {
+        $widget = new Javek_Uploader_Widget();
+        
+        $args = array();
+        $instance = array(
+                'subscription_name' => strtolower($atts['name'])
+            );
+        $html = $widget->widget($args, $instance);
+    }
+    
+    return $html;
+}
+add_shortcode('javek-uploader', 'javek_uploader_shortcode');
+
 
 class Javek_Uploader_Widget extends WP_Widget
 {
